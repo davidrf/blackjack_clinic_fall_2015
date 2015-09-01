@@ -5,14 +5,13 @@ class Deck
     @collection = []
     SUITS.each do |suit|
       VALUES.each do |value|
-        @collection << PlayingCard.new(value, suit)
+        @collection << Card.new(value, suit)
       end
     end
     @collection.shuffle!
   end
 
-  def draw!
-    @collection.pop
+  def draw!(value)
+    @collection.pop(value)
   end
 end
-
