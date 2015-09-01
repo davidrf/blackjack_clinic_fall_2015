@@ -14,12 +14,5 @@ class Deck
   def draw!
     @collection.pop
   end
-
-  def draw_two
-    cards = []
-    cards << draw!
-    cards << draw!
-    cards
-  end
 end
 

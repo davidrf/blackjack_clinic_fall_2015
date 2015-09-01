@@ -6,17 +6,15 @@ class Hand
 
   def score
     sum = 0
-    ace_count = 0
-    @cards.each do |card|
+    ace_present = false
+    cards.each do |card|
       sum += card.numeric_value
-      if card.numeric_value == 1
-        ace_count += 1
+      if card.ace?
+        ace_present = true
       end
     end
-    ace_count.times do |ace|
-      if sum + 10 <= 21
-        sum += 10
-      end
+    if ace_present && sum + 10 <= 21
+      sum += 10
     end
     sum
   end
